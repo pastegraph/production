@@ -15,7 +15,6 @@ jobs:
         with:
           directory: ./
           key: ${{secrets.PRODUCTION_SSH_KEY}}
-          known_hosts: known_hosts
           playbook: production.playbook.yml
           requirements: requirements.yml
           options: |
