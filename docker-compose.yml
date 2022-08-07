@@ -1,0 +1,9 @@
+services:
+
+  web:
+    image: pashabezborod/pastegraph-webui
+    ports:
+    - "8888:80"
+    
+  store:
+    image: pashabezborod/pastegraph-store
