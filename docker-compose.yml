@@ -4,6 +4,14 @@ services:
     image: pashabezborod/pastegraph-webui
     ports:
     - "8888:80"
-    
+
   store:
     image: pashabezborod/pastegraph-store
+    environment:
+      DB_PATH: /myvolume/db.s3db
+      LOG_LEVEL: INFO
+    volumes:
+      - storedata:/myvolume
+
+  volumes:
+    storedata:
