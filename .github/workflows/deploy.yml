@@ -1,0 +1,21 @@
+name: Deploy Pastegraph on production
+on:
+  push:
+    branches:
+      - main
+jobs:
+  DeployProduction:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          directory: ./
+          key: ${{secrets.PRODUCTION_SSH_KEY}}
+          playbook: production.playbook.yml
+          requirements: requirements.yml
+          options: |
+            --inventory production.inventory.yml
+            --verbose

@@ -1,0 +1,4 @@
+all:
+  hosts:
+    hsslb.ch:
+      ansible_user: root
